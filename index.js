@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override');
 let { comments } = require('./database_comment/comment');
 
+//middleware
+app.use(methodOverride('_method'));
+app.use(express.urlencoded({ extended: true }));
 //setup the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
