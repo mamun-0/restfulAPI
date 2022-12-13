@@ -24,6 +24,14 @@ app.post('/comments', (req, res) => {
   comments.push({ username, comment, id: uuid() });
   res.redirect('/comments');
 });
+app.patch('/comments/:id', (req, res) => {
+  const { id } = req.params;
+  const { username, comment } = req.body;
+  const foundComment = comments.find((c) => c.id === id);
+  foundComment.username = username;
+  foundComment.comment = comment;
+  res.redirect('/comments');
+});
 app.delete('/comments/:id', (req, res) => {
   const { id } = req.params;
   comments = comments.filter((c) => c.id !== id);
