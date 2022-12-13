@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-let comment = require('./database_comment/comment');
+let comments = require('./database_comment/comment');
 
 //setup the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-  res.render('index', { comment });
+  res.render('index', { comments });
 });
 
 app.listen(3000, () => {
