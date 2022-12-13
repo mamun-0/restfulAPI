@@ -7,7 +7,7 @@
     <title>Edit comment</title>
   </head>
   <body>
-    <form action="/comments/<%=  comments.id %>/" method="POST">
+    <form action="/comments/<%=comments.id%>?_method=PATCH" method="POST">
       <div>
         <label for="username">Username : </label>
         <input
