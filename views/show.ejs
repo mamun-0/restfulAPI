@@ -13,11 +13,15 @@
     </style>
   </head>
   <body>
-    <h2>Details of <b><%= comments.username %></b></h2>
-    <div><%= comments.comment %></div>
-    <a href="/comments/<%= comments.id %>/edit">Edit</a>
-    <form action="/comments/<%= comments.id %>?_method=DELETE" method="POST">
+    <h2>Details of <b><%= foundComment.username %></b></h2>
+    <div><%= foundComment.comment %></div>
+    <a href="/comments/<%= foundComment.id %>/edit">Edit</a>
+    <form
+      action="/comments/<%= foundComment.id %>?_method=DELETE"
+      method="POST"
+    >
       <button>Delete</button>
     </form>
+    <a href="/comments">Back to home</a>
   </body>
 </html>
