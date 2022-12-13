@@ -7,20 +7,20 @@
     <title>Edit comment</title>
   </head>
   <body>
-    <form action="/comments/<%=comments.id%>?_method=PATCH" method="POST">
+    <form action="/comments/<%=foundComment.id%>?_method=PATCH" method="POST">
       <div>
         <label for="username">Username : </label>
         <input
           id="username"
           type="text"
           placeholder="username"
-          value="<%= comments.username %> "
+          value="<%= foundComment.username %> "
         />
       </div>
       <div>
         <label for="comment">Comment : </label>
         <textarea name="comment" id="comment" cols="20" rows="10">
-<%= comments.comment %> </textarea
+<%= foundComment.comment %> </textarea
         >
       </div>
       <button>Submit</button>
