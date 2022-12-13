@@ -19,6 +19,12 @@ app.get('/comments/new', (req, res) => {
   res.render('new');
 });
 
+app.delete('/comments/:id', (req, res) => {
+  const { id } = req.params;
+  comments = comments.filter((c) => c.id !== id);
+  res.redirect('/comments');
+});
+
 console.log(comments);
 app.listen(3000, () => {
   console.log('PORT LISTENING ON 3000');
