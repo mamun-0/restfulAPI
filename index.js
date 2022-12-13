@@ -38,7 +38,6 @@ app.delete('/comments/:id', (req, res) => {
   res.redirect('/comments');
 });
 
-console.log(comments);
 app.listen(3000, () => {
   console.log('PORT LISTENING ON 3000');
 });
