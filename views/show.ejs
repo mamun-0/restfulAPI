@@ -15,7 +15,9 @@
   <body>
     <h2>Details of <b><%= comments.username %></b></h2>
     <div><%= comments.comment %></div>
-    <a href="/comments/edit">Edit</a>
-    <a href="/comments/detele">Delete</a>
+    <a href="/comments/<%= comments.id %>/edit">Edit</a>
+    <form action="/comments/<%= comments.id %>?_method=DELETE" method="POST">
+      <button>Delete</button>
+    </form>
   </body>
 </html>
