@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
-const path = reauire('path');
+const path = require('path');
 let comment = require('./database_comment/comment');
 
 //setup the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+app.get('/', (req, res) => {
+  res.render('index', { comment });
+});
 
 app.listen(3000, () => {
   console.log('PORT LISTENING ON 3000');
