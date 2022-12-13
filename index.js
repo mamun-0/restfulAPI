@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
+const { uuid } = require('uuidv4');
 let { comments } = require('./database_comment/comment');
 
 //middleware
@@ -18,7 +19,11 @@ app.get('/comments', (req, res) => {
 app.get('/comments/new', (req, res) => {
   res.render('new');
 });
-
+app.post('/comments', (req, res) => {
+  const { username, comment } = req.body;
+  comments.push({ username, comment, id: uuid() });
+  res.redirect('/comments');
+});
 app.delete('/comments/:id', (req, res) => {
   const { id } = req.params;
   comments = comments.filter((c) => c.id !== id);
