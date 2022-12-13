@@ -19,6 +19,11 @@ app.get('/comments', (req, res) => {
 app.get('/comments/new', (req, res) => {
   res.render('new');
 });
+app.get('/comments/:id', (req, res) => {
+  const { id } = req.params;
+  const foundComment = comments.find((c) => c.id === id);
+  res.render('show', { foundComment });
+});
 app.post('/comments', (req, res) => {
   const { username, comment } = req.body;
   comments.push({ username, comment, id: uuidv4() });
