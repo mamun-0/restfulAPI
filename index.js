@@ -19,6 +19,11 @@ app.get('/comments', (req, res) => {
 app.get('/comments/new', (req, res) => {
   res.render('new');
 });
+app.get('/comments/:id/edit', (req, res) => {
+  const { id } = req.params;
+  const foundComment = comments.find((c) => c.id === id);
+  res.render('edit', { foundComment });
+});
 app.get('/comments/:id', (req, res) => {
   const { id } = req.params;
   const foundComment = comments.find((c) => c.id === id);
