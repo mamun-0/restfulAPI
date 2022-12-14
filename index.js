@@ -22,7 +22,7 @@ app.get('/comments/new', (req, res) => {
 app.get('/comments/:id/edit', (req, res) => {
   const { id } = req.params;
   const foundComment = comments.find((c) => c.id === id);
-  res.render('edit', { foundComment });
+  res.render('edit', { foundComment, title:"Edit comment" });
 });
 app.get('/comments/:id', (req, res) => {
   const { id } = req.params;
