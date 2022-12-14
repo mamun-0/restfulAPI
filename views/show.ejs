@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Details Comment</title>
-    <style>
-      div {
-        padding: 5px;
-        border: 2px solid gray;
-      }
-    </style>
-  </head>
+<%- include('partials/head') %> 
   <body>
     <h2>Details of <b><%= foundComment.username %></b></h2>
     <div><%= foundComment.comment %></div>

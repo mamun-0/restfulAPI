@@ -27,7 +27,7 @@ app.get('/comments/:id/edit', (req, res) => {
 app.get('/comments/:id', (req, res) => {
   const { id } = req.params;
   const foundComment = comments.find((c) => c.id === id);
-  res.render('show', { foundComment });
+  res.render('show', { foundComment, title:"Comment details" });
 });
 app.post('/comments', (req, res) => {
   const { username, comment } = req.body;
