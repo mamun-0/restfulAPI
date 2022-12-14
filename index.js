@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/comments', (req, res) => {
-  res.render('index', { comments });
+  res.render('index', { comments, title:"All Coments" });
 });
 
 app.get('/comments/new', (req, res) => {
