@@ -8,6 +8,7 @@ let { comments } = require('./database_comment/comment');
 //middleware
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')))
 //setup the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
