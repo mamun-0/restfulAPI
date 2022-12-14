@@ -17,7 +17,7 @@ app.get('/comments', (req, res) => {
 });
 
 app.get('/comments/new', (req, res) => {
-  res.render('new');
+  res.render('new',{title:"Add new comment"});
 });
 app.get('/comments/:id/edit', (req, res) => {
   const { id } = req.params;
