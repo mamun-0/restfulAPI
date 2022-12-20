@@ -8,27 +8,27 @@ let { comments } = require('./database_comment/comment');
 //middleware
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 //setup the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/comments', (req, res) => {
-  res.render('index', { comments, title:"All Coments" });
+  res.render('index', { comments, title: 'All Coments' });
 });
 
 app.get('/comments/new', (req, res) => {
-  res.render('new',{title:"Add new comment"});
+  res.render('new', { title: 'Add new comment' });
 });
 app.get('/comments/:id/edit', (req, res) => {
   const { id } = req.params;
   const foundComment = comments.find((c) => c.id === id);
-  res.render('edit', { foundComment, title:"Edit comment" });
+  res.render('edit', { foundComment, title: 'Edit comment' });
 });
 app.get('/comments/:id', (req, res) => {
   const { id } = req.params;
   const foundComment = comments.find((c) => c.id === id);
-  res.render('show', { foundComment, title:"Comment details" });
+  res.render('show', { foundComment, title: 'Comment details' });
 });
 app.post('/comments', (req, res) => {
   const { username, comment } = req.body;
@@ -49,6 +49,11 @@ app.delete('/comments/:id', (req, res) => {
   res.redirect('/comments');
 });
 
+app.all('*', (req, res) => {
+  res.render('error', {
+    err: { status: 404, message: `Can't get ${req.path}` },
+  });
+});
 app.listen(3000, () => {
   console.log('PORT LISTENING ON 3000');
 });
